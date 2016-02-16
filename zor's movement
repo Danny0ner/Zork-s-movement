@@ -1,0 +1,85 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+	char mhouse[5][4] = {
+		{ '@', '@', '@', '@' },
+		{ '@', 'K', 'P', '@' },
+		{ '@', 'D', 'B', '@' },
+		{ '@', 'J', '@', '@' },
+		{ '@', '@', '@', '@' },
+	};
+	int  i = 2, j = 1;
+	char direc;
+	printf("write n (north) s (south) w (west) e (east) for move around the house\nPress q to exit\n");
+	do{
+		scanf_s("%c", &direc);
+		if (direc == 'n'){
+			if (mhouse[i- 1][j] == '@'){
+				printf("\nThere's a wall there\n");
+
+			}
+			else if (mhouse[i- 1][j] == 'D'){
+				printf("\nYou're in the dining room\n");
+				i--;
+			}
+			else if (mhouse[i- 1][j] == 'P'){
+				printf("\nYou're in the Pantry\n");
+				i--;
+			}
+			else if (mhouse[i- 1][j] == 'K'){
+				printf("\nYou're in the kitchen\n");
+				i--;
+			}
+		}
+		else if (direc == 's'){
+			if (mhouse[i + 1][j] == '@'){
+				printf("\nThere's a wall there\n");
+
+			}
+			else if (mhouse[i + 1][j] == 'D'){
+				printf("\nYou're in the dining room\n");
+				i++;
+			}
+			else if (mhouse[i + 1][j] == 'B'){
+				printf("\nYou're in the Bathroom\n");
+				i++;
+			}
+			else if (mhouse[i + 1][j] == 'J'){
+				printf("\nYou're in the bedroom\n");
+				i++;
+			}
+		}
+		else if (direc == 'w'){
+			if (mhouse[i][j - 1] == '@'){
+				printf("\nThere's a wall there\n");
+
+			}
+			else if (mhouse[i][j- 1] == 'D'){
+				printf("\nYou're in the dining room\n");
+				j--;
+			}
+			else if (mhouse[i][j - 1] == 'K'){
+				printf("\nYou're in the kitchen\n");
+				j--;
+			}
+		}
+		else if (direc == 'e'){
+			if (mhouse[i][j+ 1] == '@'){
+				printf("\nThere's a wall there\n");
+
+			}
+			else if (mhouse[i][j +1] == 'P'){
+				printf("\nYou're in the pantry\n");
+				j++;
+			}
+			else if (mhouse[i][j+1] == 'B'){
+				printf("\nYou're in the bathroom\n");
+				j++;
+			}
+
+		}
+	} while (direc != 'q');
+
+	return 0;
+}
